@@ -1,0 +1,23 @@
+{
+  "name": "spheron-upload-action",
+  "version": "0.0.1",
+  "description": "spheron upload action ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theycallmeloki/spheron-upload-action.git"
+  },
+  "author": "theycallmeloki [dude.1996@live.com]",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/theycallmeloki/spheron-upload-action/issues"
+  },
+  "homepage": "https://github.com/theycallmeloki/spheron-upload-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1"
+  }
+}
