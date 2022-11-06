@@ -1,13 +1,21 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Spheron Upload Action'
+description: 'Upload a built folder to spheron network'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  spheron-api-key:
+    description: 'spheron api key'
     required: true
-    default: 'World'
+    default: ''
+  spheron-project-name:
+    description: 'spheron project name'
+    required: true
+    default: ''
+  spheron-organization-id: 
+    description: 'spheron organizition id'
+    required: false
+    default: ''
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  site:
+    description: 'The url of the deployment on spheron network'
 runs:
   using: 'node16'
   main: 'dist/index.js'
