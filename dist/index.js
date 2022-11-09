@@ -14555,7 +14555,6 @@ async function postFiles(
 }
 
 try {
-  process.chdir(process.env.GITHUB_WORKSPACE);
   // `who-to-greet` input defined in action metadata file
   //const nameToGreet = core.getInput('who-to-greet');
   //console.log(`Hello ${nameToGreet}!`);
@@ -14578,7 +14577,7 @@ try {
     if (spheronOrganizationId == "") {
       spheronOrganizationId = res["organizations"][0]["id"];
     }
-    const directoryPath = path.join(__dirname, spheronUploadFolder);
+    const directoryPath = `${process.env.GITHUB_WORKSPACE}/${spheronUploadFolder}`;
     uploaded = postFiles(
       spheronApiKey,
       directoryPath,
