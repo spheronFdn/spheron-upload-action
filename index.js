@@ -117,7 +117,7 @@ try {
     if (spheronOrganizationId == "") {
       spheronOrganizationId = res["organizations"][0]["id"];
     }
-    const directoryPath = spheronUploadFolder;
+    const directoryPath = `${process.env.GITHUB_WORKSPACE}/${spheronUploadFolder}`;
     uploaded = postFiles(
       spheronApiKey,
       directoryPath,
