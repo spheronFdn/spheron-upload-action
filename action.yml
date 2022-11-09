@@ -1,25 +1,29 @@
-name: 'Spheron Upload Action'
-description: 'Upload a built folder to spheron network'
+name: "Spheron Upload Action"
+description: "Upload a built folder to spheron network"
 inputs:
   spheron-api-key:
-    description: 'spheron api key'
+    description: "spheron api key"
     required: true
-    default: ''
+    default: ""
   spheron-project-name:
-    description: 'spheron project name'
+    description: "spheron project name"
     required: true
-    default: ''
-  spheron-organization-id: 
-    description: 'spheron organizition id'
+    default: ""
+  spheron-organization-id:
+    description: "spheron organizition id"
     required: false
-    default: ''
+    default: ""
   spheron-upload-folder:
-    description: 'spheron upload folder name'
+    description: "spheron upload folder name"
     required: true
-    default: 'build'
+    default: "build"
+  spheron-protocol:
+    description: "spheron protocol"
+    required: true
+    default: "ipfs-pinata"
 outputs:
   site:
-    description: 'The url of the deployment on spheron network'
+    description: "The url of the deployment on spheron network"
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: "node16"
+  main: "dist/index.js"
