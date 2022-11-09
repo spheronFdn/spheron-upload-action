@@ -117,7 +117,7 @@ try {
     if (spheronOrganizationId == "") {
       spheronOrganizationId = res["organizations"][0]["id"];
     }
-    const directoryPath = path.join(__dirname, spheronUploadFolder);
+    const directoryPath = spheronUploadFolder;
     uploaded = postFiles(
       spheronApiKey,
       directoryPath,
