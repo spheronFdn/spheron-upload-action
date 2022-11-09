@@ -14508,8 +14508,6 @@ function readFilesSync(dir) {
     });
   });
 
-  console.log(files);
-
   return files;
 }
 
