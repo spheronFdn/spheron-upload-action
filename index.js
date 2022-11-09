@@ -83,7 +83,7 @@ async function postFiles(
     project: projectName,
     protocol: protocol,
   });
-  console.log(searchParams);
+  // console.log(searchParams);
   const resp = await fetch(
     `${spheronBaseUrl}/v1/deployment/upload?${searchParams}`,
     requestOptions
@@ -125,7 +125,7 @@ try {
       spheronProtocol
     );
     uploaded.then((res) => {
-      console.log(res);
+      // console.log(res);
       console.log(res["sitePreview"]);
     });
   });
