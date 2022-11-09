@@ -14543,6 +14543,7 @@ async function postFiles(
     project: projectName,
     protocol: protocol,
   });
+  console.log(searchParams);
   const resp = await fetch(
     `${spheronBaseUrl}/v1/deployment/upload?${searchParams}`,
     requestOptions
@@ -14571,9 +14572,9 @@ try {
   // console.log(`Spheron Upload Folder: ${spheronUploadFolder}`);
   const spheronProtocol = core.getInput("spheron-protocol");
 
-  getScope(spheronApiKey).then((res) => {
+  getScope(spheronApiKey).then((scopeRes) => {
     if (spheronOrganizationId == "") {
-      spheronOrganizationId = res["organizations"][0]["id"];
+      spheronOrganizationId = scopeRes["organizations"][0]["id"];
     }
     const directoryPath = `${process.env.GITHUB_WORKSPACE}/${spheronUploadFolder}`;
     uploaded = postFiles(
