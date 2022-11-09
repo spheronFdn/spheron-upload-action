@@ -14584,6 +14584,7 @@ try {
       spheronProtocol
     );
     uploaded.then((res) => {
+      console.log(res);
       console.log(res["sitePreview"]);
     });
   });
