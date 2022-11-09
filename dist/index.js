@@ -14524,7 +14524,7 @@ async function postFiles(
   const formData = new FormData();
 
   filePointers.forEach((file) => {
-    console.log(file);
+    // console.log(file);
     formData.append(
       "files",
       fs.createReadStream(file.filepath),
