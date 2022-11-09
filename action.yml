@@ -13,6 +13,10 @@ inputs:
     description: 'spheron organizition id'
     required: false
     default: ''
+  spheron-upload-folder:
+    description: 'spheron upload folder name'
+    required: true
+    default: 'build'
 outputs:
   site:
     description: 'The url of the deployment on spheron network'
