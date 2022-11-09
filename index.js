@@ -105,7 +105,7 @@ try {
   const spheronProjectName = core.getInput("spheron-project-name");
   // const spheronProjectName = "Dragd";
   // console.log(`Spheron Project Name: ${spheronProjectName}`);
-  const spheronOrganizationId = core.getInput("spheronOrganizationId");
+  let spheronOrganizationId = core.getInput("spheronOrganizationId");
   // let spheronOrganizationId = "";
   // console.log(`Spheron Organization ID: ${spheronOrganizationId}`);
   const spheronUploadFolder = core.getInput("spheron-upload-folder");
