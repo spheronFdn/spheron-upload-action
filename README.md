@@ -1,5 +1,11 @@
 # spheron-upload-action
 
+## What does it do?
+
+So you've built a frontend service with React/Angular/Vue/Vanilla JS or generally any JS framework, once the build step is complete, you'd want to create a build with `npm run build` post which the ideal next step is to move it into IPFS so you can attach it to any web3 domain, Spheron protocol assists us with this and also gives you a URL that you can use to view your deployment (Think vercel of web3 site deployments) 
+
+This action allows you to define a step that handles uploading of built files to IPFS and returns a URL that you can use to visit the deployment
+
 ## Usage
 Hydrate the following environment keys in your project's environment secrets, 
 
