@@ -24,6 +24,7 @@ You can override the default protocol by passing in a supported key from Spheron
 ## Demo
 
 [https://github.com/theycallmeloki/spheron-upload-action-test](https://github.com/theycallmeloki/spheron-upload-action-test)
+
 [Successful Action](https://github.com/theycallmeloki/spheron-upload-action-test/actions/runs/3430231106/jobs/5716926735)
 
 The workflow itself is [here](https://github.com/theycallmeloki/spheron-upload-action-test/blob/main/.github/workflows/main.yml)
