@@ -19081,8 +19081,8 @@ async function postFiles(
   protocol
 ) {
   const data = new FormData();
-  fillFormData(uploadDirectory, "./", data);
-  
+  fillFormData(buildFolder, "./", data);
+
   var requestOptions = {
     method: "POST",
     headers: {
