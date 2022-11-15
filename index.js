@@ -2,6 +2,7 @@ const core = require("@actions/core");
 const github = require("@actions/github");
 const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
+const axios = require("axios");
 const path = require("path");
 const fs = require("fs");
 var FormData = require("form-data");
@@ -51,6 +52,21 @@ function readFilesSync(dir) {
   return files;
 }
 
+function fillFormData(dir, rootPath, formData) {
+  const files = fs.readdirSync(dir);
+  for (const file of files) {
+    const path = dir + "/" + file;
+    const filePath = rootPath + file;
+    if (fs.statSync(path).isDirectory()) {
+      fillFormData(path, filePath + "/", formData);
+    } else {
+      formData.append("files", fs.createReadStream(path), {
+        filepath: filePath,
+      });
+    }
+  }
+}
+
 async function postFiles(
   apiKey,
   buildFolder,
@@ -58,23 +74,15 @@ async function postFiles(
   projectName,
   protocol
 ) {
-  const filePointers = readFilesSync(buildFolder);
-  const formData = new FormData();
-
-  filePointers.forEach((file) => {
-    // console.log(file);
-    formData.append(
-      "files",
-      fs.createReadStream(file.filepath),
-      `${file.name}${file.ext}`
-    );
-  });
+  const data = new FormData();
+  fillFormData(uploadDirectory, "./", data);
+  
   var requestOptions = {
     method: "POST",
     headers: {
       Authorization: `Bearer ${apiKey}`,
     },
-    body: formData,
+    body: data,
     redirect: "follow",
   };
 
