@@ -76,6 +76,7 @@ async function postFiles(
 ) {
   const data = new FormData();
   fillFormData(buildFolder, "./", data);
+  console.log("file upload data", data);
 
   var requestOptions = {
     method: "POST",
