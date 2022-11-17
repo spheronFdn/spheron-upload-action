@@ -27,29 +27,22 @@ async function getScope(apiKey) {
   return respJson;
 }
 
-function readFilesSync(dir) {
-  const files = [];
+async function getProjectDomain(apiKey, projectId) {
+  var requestOptions = {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+    },
+    redirect: "follow",
+  };
 
-  fs.readdirSync(dir).forEach((filename) => {
-    const name = path.parse(filename).name;
-    const ext = path.parse(filename).ext;
-    const filepath = path.resolve(dir, filename);
-    const stat = fs.statSync(filepath);
-    const isFile = stat.isFile();
+  const resp = await fetch(
+    `${spheronBaseUrl}/v1/project/${projectId}/domains`,
+    requestOptions
+  );
+  const respJson = await resp.json();
 
-    if (isFile) files.push({ filepath, name, ext, stat });
-  });
-
-  files.sort((a, b) => {
-    // natural sort alphanumeric strings
-    // https://stackoverflow.com/a/38641281
-    return a.name.localeCompare(b.name, undefined, {
-      numeric: true,
-      sensitivity: "base",
-    });
-  });
-
-  return files;
+  return respJson;
 }
 
 function fillFormData(dir, rootPath, formData) {
@@ -135,7 +128,14 @@ try {
     );
     uploaded.then((res) => {
       // console.log(res);
-      console.log(res["sitePreview"]);
+      // console.log(res["sitePreview"]);
+      domains = getProjectDomain(spheronApiKey, res["projectId"]);
+      domains.then((domainRes) => {
+        domainRes.forEach((domain) => {
+          console.log(`${domain["name"]}`);
+        })
+        core.setOutput("site", domainRes["domains"][0]["name"]);
+      });
     });
   });
 } catch (error) {
