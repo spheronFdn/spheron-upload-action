@@ -130,7 +130,9 @@ try {
       // console.log(res);
       // console.log(res["sitePreview"]);
       domains = getProjectDomain(spheronApiKey, res["projectId"]);
+      console.log(domains)
       domains.then((domainRes) => {
+        conasole.log(domainRes);
         domainRes.forEach((domain) => {
           console.log(`${domain["name"]}`);
         })

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "ncc build index.js --license licenses.txt",
-    "push": "npm run build && git add . && git commit -m \"Bump\" && git tag -a -m \"Bump\" v0.40 && git push --follow-tags"
+    "push": "npm run build && git add . && git commit -m \"Bump\" && git tag -a -m \"Bump\" v0.41 && git push --follow-tags"
   },
   "repository": {
     "type": "git",
