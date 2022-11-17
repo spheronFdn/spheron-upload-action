@@ -69,7 +69,7 @@ async function postFiles(
 ) {
   const data = new FormData();
   fillFormData(buildFolder, "./", data);
-  console.log("file upload data", data);
+  // console.log("file upload data", data);
 
   var requestOptions = {
     method: "POST",
@@ -132,7 +132,7 @@ try {
       domains = getProjectDomain(spheronApiKey, res["projectId"]);
       console.log(domains)
       domains.then((domainRes) => {
-        conasole.log(domainRes);
+        console.log(domainRes);
         domainRes.forEach((domain) => {
           console.log(`${domain["name"]}`);
         })
