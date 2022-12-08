@@ -1,4 +1,4 @@
-name: "Spheron Upload Action"
+name: "Spheron Action"
 description: "Upload a built folder to spheron network"
 inputs:
   spheron-api-key:
